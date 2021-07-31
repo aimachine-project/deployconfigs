@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  mysql:
+    container_name: mysql_server
+    image: mysql:8.0.25
+    environment:
+      MYSQL_ROOT_PASSWORD: asas
+      cap_add: SYS_NICE
+
+  backend:
+    environment:
+      DB_AIM_IP: mysql_server
+      DB_AIM_USERNAME: root
+      DB_AIM_PASSWORD: asas
+      DB_AIM_USER_ROLE_ADMIN_USERNAME: sprzedam
+      DB_AIM_USER_ROLE_ADMIN_PASSWORD: opla
+    depends_on: [mysql]
+    ports: [8080:8080]
+    container_name: backend
+    image: syskaseb/aimachine-backend
+
+  frontend:
+    depends_on: [mysql, backend]
+    ports: [80:3000]
+    container_name: frontend
+    image: syskaseb/aimachine-frontend
+    
