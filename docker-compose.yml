@@ -24,4 +24,11 @@ services:
     ports: [80:3000]
     container_name: frontend
     image: syskaseb/aimachine-frontend
-    
+
+  ai:
+    environment:
+      PYTHONUNBUFFERED: 1
+    depends_on: [mysql, backend, frontend]
+    ports: [8081:8081]
+    container_name: ai
+    image: syskaseb/aimachine-ai
