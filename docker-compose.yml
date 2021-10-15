@@ -18,6 +18,7 @@ services:
     ports: [8080:8080]
     container_name: backend
     image: syskaseb/aimachine-backend
+    restart: always
 
   frontend:
     depends_on: [mysql, backend]
