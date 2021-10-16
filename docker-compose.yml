@@ -29,6 +29,7 @@ services:
   ai:
     environment:
       PYTHONUNBUFFERED: 1
+      AIM_BACKEND_DOMAIN_NAME: backend
     depends_on: [mysql, backend, frontend]
     ports: [8081:8081]
     container_name: ai
