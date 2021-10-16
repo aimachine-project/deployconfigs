@@ -14,6 +14,7 @@ services:
       DB_AIM_PASSWORD: asas
       DB_AIM_USER_ROLE_ADMIN_USERNAME: sprzedam
       DB_AIM_USER_ROLE_ADMIN_PASSWORD: opla
+      AIM_AI_DOMAIN_NAME: ai
     depends_on: [mysql]
     ports: [8080:8080]
     container_name: backend
