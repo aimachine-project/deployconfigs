@@ -4,16 +4,16 @@ services:
     container_name: mysql_server
     image: mysql:8.0.25
     environment:
-      MYSQL_ROOT_PASSWORD: asas
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
       cap_add: SYS_NICE
 
   backend:
     environment:
       DB_AIM_IP: mysql_server
-      DB_AIM_USERNAME: root
-      DB_AIM_PASSWORD: asas
-      DB_AIM_USER_ROLE_ADMIN_USERNAME: sprzedam
-      DB_AIM_USER_ROLE_ADMIN_PASSWORD: opla
+      DB_AIM_USERNAME: $DB_AIM_USERNAME
+      DB_AIM_PASSWORD: $DB_AIM_PASSWORD
+      DB_AIM_USER_ROLE_ADMIN_USERNAME: $DB_AIM_USER_ROLE_ADMIN_USERNAME
+      DB_AIM_USER_ROLE_ADMIN_PASSWORD: $DB_AIM_USER_ROLE_ADMIN_PASSWORD
       AIM_AI_DOMAIN_NAME: ai
     depends_on: [mysql]
     container_name: backend
